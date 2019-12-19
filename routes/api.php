@@ -76,9 +76,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::delete('/seller/delete/{id}' , 'SellerController@delete');
     Route::get('/seller/getAll' , 'SellerController@getAll');
 
-    Route::post('/size/create' , 'SizeController@create');
-    Route::post('/size//update/{id}' , 'SizeController@update');
-    Route::delete('/size/delete/{id}' , 'SizeController@delete');
+//    Route::post('/size/create' , 'SizeController@create');
+//    Route::post('/size//update/{id}' , 'SizeController@update');
+//    Route::delete('/size/delete/{id}' , 'SizeController@delete');
     Route::get('/size/getAll' , 'SizeController@getAll');
 
 //    Route::post('/sub-category/create' , 'SubCategoryController@create');

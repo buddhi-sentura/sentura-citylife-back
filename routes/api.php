@@ -81,10 +81,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::delete('/size/delete/{id}' , 'SizeController@delete');
     Route::get('/size/getAll' , 'SizeController@getAll');
 
-    Route::post('/sub-category/create' , 'SubCategoryController@create');
-    Route::post('/sub-category//update/{id}' , 'SubCategoryController@update');
-    Route::delete('/sub-category/delete/{id}' , 'SubCategoryController@delete');
-    Route::get('/sub-category/getAll' , 'SubCategoryController@getAll');
+//    Route::post('/sub-category/create' , 'SubCategoryController@create');
+//    Route::post('/sub-category//update/{id}' , 'SubCategoryController@update');
+//    Route::delete('/sub-category/delete/{id}' , 'SubCategoryController@delete');
+//    Route::get('/sub-category/getAll' , 'SubCategoryController@getAll');
 //
 //});
 //Route::post('/register', 'AuthController@register');

@@ -20,6 +20,11 @@ class CreateOrderTable extends Migration
             $table->date('order_date');
             $table->boolean('order_customer_confermation_flag');
             $table->boolean('order_complete_flag');
+            $table->integer('seller_id');
+            $table->foreign('seller_id')
+                ->references('id')
+                ->on('seller')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

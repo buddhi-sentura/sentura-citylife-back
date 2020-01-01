@@ -16,7 +16,10 @@ class Item extends Model
         'item_description',
         'discount',
         'active_flag',
-        'current_date'
+        'current_date',
+        'mainCategory',
+        'category_id',
+        'sub_category_id'
     ];
 
 }

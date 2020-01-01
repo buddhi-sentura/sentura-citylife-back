@@ -13,35 +13,43 @@ class OrderController extends Controller
 
     public function __construct()
     {
-        $this->order= new Order();
-        $this->orderDetail= new OrderDetail();
+        $this->order = new Order();
+        $this->orderDetail = new OrderDetail();
+    }
+
+    public function getsellerOrders($id)
+    {
+        $orders = DB::table('orders')->select('total_price')->where('seller_id', $id)->get();
+        return ($orders);
     }
 
     public function create(Request $request)
     {
+//        echo ($request);
         DB::beginTransaction();
-        try{
-            $order=$this->order->create([
-                'total_price'=>$request->total_price,
-                'order_discount'=>$request->order_discount,
-                'order_date'=>$request->order_date,
-                'order_customer_confermation_flag'=>$request->order_customer_confermation_flag,
-                'order_complete_flag'=>$request->order_complete_flag,
+        try {
+            $order = $this->order->create([
+                'total_price' => $request->total_price,
+                'order_discount' => $request->order_discount,
+                'order_date' => $request->order_date,
+                'order_customer_confermation_flag' => $request->order_customer_confermation_flag,
+                'order_complete_flag' => $request->order_complete_flag,
+                'seller_id' => $request->seller_id,
             ]);
 
             $orderDetail = $this->orderDetail->create([
-                'qty'=>$request->qty,
-                'item_code'=>$request->item_code,
-                'order_id'=>$order->id,
+                'qty' => $request->qty,
+                'item_code' => $request->item_code,
+                'order_id' => $order->id,
             ]);
-            if ($order && $orderDetail){
+            if ($order && $orderDetail) {
                 DB::commit();
-            } else{
+            } else {
                 DB::rollBack();
             }
             return redirect()->back();
 
-        }catch (Exception $ex){
+        } catch (Exception $ex) {
             DB::rollBack();
             return redirect()->back();
         }

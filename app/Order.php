@@ -13,6 +13,7 @@ class Order extends Model
         'order_discount',
         'order_date',
         'order_customer_confermation_flag',
-        'order_complete_flag'
+        'order_complete_flag',
+        'seller_id',
     ];
 }

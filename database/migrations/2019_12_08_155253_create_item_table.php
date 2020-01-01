@@ -23,6 +23,26 @@ class CreateItemTable extends Migration
             $table->double('discount',15,2);
             $table->boolean('active_flag');
             $table->date('current_date');
+            $table->integer('category_id');
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('category')
+                ->onDelete('cascade');
+            $table->integer('sub_category_id');
+            $table->foreign('sub_category_id')
+                ->references('id')
+                ->on('sub_category')
+                ->onDelete('cascade');
+//            $table->integer('size_id');
+//            $table->foreign('size_id')
+//                ->references('id')
+//                ->on('size')
+//                ->onDelete('cascade');
+//            $table->integer('color_id');
+//            $table->foreign('color_id')
+//                ->references('id')
+//                ->on('colors')
+//                ->onDelete('cascade');
             $table->timestamps();
         });
     }

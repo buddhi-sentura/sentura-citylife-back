@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Color extends Model
 {
     protected $table = 'colors';
-    protected $fillable = ['color_name'];
+    protected $fillable = [
+        'color_name',
+        'color_id'
+        ];
 }
